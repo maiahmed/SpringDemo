@@ -44,6 +44,7 @@ class CountryControllerTest {
         countryDTO = new CountryDTO("Bahrain","Asia",617000, (float) 73.0,"Arabic");
     }
 
+    // Happy Scenario test case
     @Test
     void findById_WhenMatch() {
 
@@ -52,6 +53,8 @@ class CountryControllerTest {
         assertThat(countryDTOResponseEntity.getBody(), is(countryDTO) );
     }
 
+    // 1- If non existent code is called then return error message:"INVALID_COUNTRY_CODE"
+    // 2- http response should be internal server error
     @Test
     void findById_WhenNoMatch() {
 
